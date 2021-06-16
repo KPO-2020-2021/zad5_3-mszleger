@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sterowanie uproszczonym dronem latającym - Faza 2: Dokumentacja pliku include/Macierz.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Sterowanie uproszczonym dronem latającym - Faza 2
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Komponenty</a> &#124;
+<a href="#define-members">Definicje</a> &#124;
+<a href="#func-members">Funkcje</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentacja pliku Macierz.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;iomanip&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &quot;<a class="el" href="_wektor_8hh_source.html">Wektor.hh</a>&quot;</code><br />
+</div>
+<p><a href="_macierz_8hh_source.html">Idź do kodu źródłowego tego pliku.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Komponenty</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_macierz.html">Macierz&lt; rozmiar_macierzy, typ_wartosci &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Klasa modelująca macierz kwadratową o zadanym rozmiarze i zadanym typie przechowywanych wartości.  <a href="class_macierz.html#details">Więcej...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definicje</h2></td></tr>
+<tr class="memitem:a2fb554ea7b33e3839db7768d224b4e8e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_macierz_8hh.html#a2fb554ea7b33e3839db7768d224b4e8e">PRECYZJA_MACIERZ</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:a2fb554ea7b33e3839db7768d224b4e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parametr ustawiający dokładność porównywania ze sobą dwóch macierzy.  <a href="#a2fb554ea7b33e3839db7768d224b4e8e">Więcej...</a><br /></td></tr>
+<tr class="separator:a2fb554ea7b33e3839db7768d224b4e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funkcje</h2></td></tr>
+<tr class="memitem:ae913d9245fc268f16e636054d5688929"><td class="memTemplParams" colspan="2">template&lt;unsigned int rozmiar_macierzy, class typ_wartosci &gt; </td></tr>
+<tr class="memitem:ae913d9245fc268f16e636054d5688929"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_macierz_8hh.html#ae913d9245fc268f16e636054d5688929">operator&lt;&lt;</a> (std::ostream &amp;Strm, const <a class="el" href="class_macierz.html">Macierz</a>&lt; rozmiar_macierzy, typ_wartosci &gt; &amp;Mac)</td></tr>
+<tr class="memdesc:ae913d9245fc268f16e636054d5688929"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przeciążenie operatora wypisującego macierz do strumienia.  <a href="#ae913d9245fc268f16e636054d5688929">Więcej...</a><br /></td></tr>
+<tr class="separator:ae913d9245fc268f16e636054d5688929"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Dokumentacja definicji</h2>
+<a id="a2fb554ea7b33e3839db7768d224b4e8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fb554ea7b33e3839db7768d224b4e8e">&#9670;&nbsp;</a></span>PRECYZJA_MACIERZ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRECYZJA_MACIERZ&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parametr ustawiający dokładność porównywania ze sobą dwóch macierzy. </p>
+<p>Parametr określa numer miejsca po przecinku, do którego porównywane będą wartości przechowywane przez macierze. Przykład dla macierzy 2x2 dla wartości parametru ustawionej na 3: Macierz1: [1.0011, 1.001, 1.001, 1.001] Macierz2: [1.0012, 1.001, 1.001, 1.001] Operacja Macierz1 == Macierz2 zwróci wartość true, ponieważ wartości różnią się dopiero na 4 miejsu po przecinku.</p>
+<p>Wartości przed porównaniem są zaokrąglane do danego miejsca po przecinku. Przykład dla macierzy 2x2 dla wartości parametru ustawionej na 3: Macierz1: [1.0011, 1.001, 1.001, 1.001] Macierz2: [1.0016, 1.001, 1.001, 1.001] Operacja Macierz1 == Macierz2 zwróci wartość false, ponieważ po zaokrągleniu otrzymamy nierówne sobie wartości: Macierz1: [1.001, 1.001, 1.001, 1.001] Macierz2: [1.002, 1.001, 1.001, 1.001] </p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja funkcji</h2>
+<a id="ae913d9245fc268f16e636054d5688929"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae913d9245fc268f16e636054d5688929">&#9670;&nbsp;</a></span>operator<<()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int rozmiar_macierzy, class typ_wartosci &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>Strm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_macierz.html">Macierz</a>&lt; rozmiar_macierzy, typ_wartosci &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Mac</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Przeciążenie operatora wypisującego macierz do strumienia. </p>
+<p>Parametrami szablonu są &lt;rozmiar macierzy, typ wartości&gt;, gdzie: -rozmiar macierzy oznacza ilość wierszy i kolumn wartości przechowywanych przez daną macierz (np. dla macierzy 2x2 wartość 2), -typ wartości oznacza typ zmiennych, które mają być przechowywane przez daną macierz (np. double dla liczb zmiennoprzecinkowych). Funkcja ustawia dokładność wyświetlania liczb zmiennoprzecinkowych na 10 miejsc po przecinku. Funkcja ustawia stałą szerokość wyświetlania liczb na 15 znaków szerokości. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

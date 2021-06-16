@@ -20,6 +20,11 @@ option(ENABLE_LTO "Enable link time optimization" ON)
 option(ENABLE_DOCTESTS "Include tests in the library. Setting this to OFF will remove all doctest related code.
                         Tests in tests/*.cpp will still be enabled." ON)
 
+# Add support for multithreating
+#set(THREADS_PREFER_PTHREAD_FLAG ON)
+#find_package(Threads REQUIRED)
+#target_link_libraries(${EXECUTABLE} PRIVATE Threads::Threads)
+
 # Include stuff. No change needed.
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 include(ConfigSafeGuards)
@@ -38,14 +43,28 @@ find_lto(CXX)
 #                         Locate files (change as needed).
 # --------------------------------------------------------------------------------
 set(SOURCES          # All .cpp files in src/
-    src/example.cpp
-    src/lacze_do_gnuplota.cpp
+    src/Bryla_Geometryczna.cpp
+    src/Dron.cpp
+    src/GoraZGrania.cpp
+    src/GoraZOstrymSzczytem.cpp
+    src/Graniastoslup6.cpp
+    src/lacze_do_gnuplota
+    src/Macierz.cpp
+    src/Macierz3x3.cpp
+    src/MacierzObrotu.cpp
+    src/Plaskowyz.cpp
+    src/Prostopadloscian.cpp
+    src/Scena.cpp
+    src/Sciezka.cpp
+    src/Wektor.cpp
+    src/Wektor3D.cpp
 )
 set(TESTFILES        # All .cpp files in tests/
-    tests/main.cpp
-    tests/dummy.cpp
+    Macierz.cpp
+    MacierzObrotu.cpp
+    Wektor.cpp
 )
-set(LIBRARY_NAME program)  # Default name for the library built from src/*.cpp (change if you wish)
+set(LIBRARY_NAME engine)  # Default name for the library built from src/*.cpp (change if you wish)
 
 # --------------------------------------------------------------------------------
 #                            Build! (Change as needed)
@@ -54,14 +73,14 @@ set(LIBRARY_NAME program)  # Default name for the library built from src/*.cpp (
 add_library(${LIBRARY_NAME} OBJECT ${SOURCES})
 
 # Lib needs its header files, and users of the library must also see these (PUBLIC). (No change needed)
-target_include_directories(${LIBRARY_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/inc)
+target_include_directories(${LIBRARY_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
 # There's also (probably) doctests within the library, so we need to see this as well.
 target_link_libraries(${LIBRARY_NAME} PUBLIC doctest)
 
 # Set the compile options you want (change as needed).
 target_set_warnings(${LIBRARY_NAME} ENABLE ALL AS_ERROR ALL DISABLE Annoying)
-# target_compile_options(${LIBRARY_NAME} ... )  # For setting manually.
+
 
 # Add an executable for the file app/main.cpp.
 # If you add more executables, copy these lines accordingly.
