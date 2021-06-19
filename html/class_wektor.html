@@ -60,6 +60,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Metody publiczne</a> &#124;
+<a href="#pub-static-attribs">Statyczne atrybuty publiczne</a> &#124;
 <a href="class_wektor-members.html">Lista wszystkich składowych</a>  </div>
   <div class="headertitle">
 <div class="title">Dokumentacja szablonu klasy Wektor&lt; rozmiar_wektora, typ_wartosci &gt;</div>  </div>
@@ -115,6 +116,13 @@ Metody publiczne</h2></td></tr>
 <tr class="memitem:ae9e1ed1fb61c42db02798b5e0d0eb84a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wektor.html#ae9e1ed1fb61c42db02798b5e0d0eb84a">operator!=</a> (const <a class="el" href="class_wektor.html">Wektor</a>&lt; rozmiar_wektora, typ_wartosci &gt; &amp;wektor2) const</td></tr>
 <tr class="memdesc:ae9e1ed1fb61c42db02798b5e0d0eb84a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przeciążenie zanegowanego operatora porównującego ze sobą dwa wektory.  <a href="#ae9e1ed1fb61c42db02798b5e0d0eb84a">Więcej...</a><br /></td></tr>
 <tr class="separator:ae9e1ed1fb61c42db02798b5e0d0eb84a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Statyczne atrybuty publiczne</h2></td></tr>
+<tr class="memitem:ab3a1aa151205d3c319a58545ebeb7990"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wektor.html#ab3a1aa151205d3c319a58545ebeb7990">iloscStworzonych</a></td></tr>
+<tr class="separator:ab3a1aa151205d3c319a58545ebeb7990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0194a942d33082a52deef6cd32c56cc0"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wektor.html#a0194a942d33082a52deef6cd32c56cc0">iloscIstniejacych</a></td></tr>
+<tr class="separator:a0194a942d33082a52deef6cd32c56cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
 <div class="textblock"><h3>template&lt;unsigned int rozmiar_wektora, class typ_wartosci&gt;<br />
@@ -150,7 +158,7 @@ template&lt;unsigned int rozmiar_wektora, class typ_wartosci&gt; </div>
 </div><div class="memdoc">
 
 <p>Konstruktor bezarguemtowy. </p>
-<p>Zmienna przechowywująca ilość stworzonych obiektów typu <a class="el" href="class_wektor.html" title="Klasa modelująca wektor o zadanym rozmiarze i zadanym typie przechowywanych wartości. ">Wektor</a> Zmienna przechowywująca ilość obecnie istniejących obiektów typu <a class="el" href="class_wektor.html" title="Klasa modelująca wektor o zadanym rozmiarze i zadanym typie przechowywanych wartości. ">Wektor</a> Konstruktor ustawiający wszystkie przechowywane przez wektor wartości na 0. </p>
+<p>Konstruktor ustawiający wszystkie przechowywane przez wektor wartości na 0. </p>
 
 </div>
 </div>
@@ -550,6 +558,57 @@ template&lt;unsigned int rozmiar_wektora, class typ_wartosci&gt; </div>
 
 <p>Metoda ustawiająca wartości wektora. </p>
 <p>Metoda ustawiająca wartości wektora wartościami podanymi w tablicy jako argument. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja atrybutów składowych</h2>
+<a id="a0194a942d33082a52deef6cd32c56cc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0194a942d33082a52deef6cd32c56cc0">&#9670;&nbsp;</a></span>iloscIstniejacych</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int rozmiar_wektora, class typ_wartosci&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_wektor.html">Wektor</a>&lt; rozmiar_wektora, typ_wartosci &gt;::iloscIstniejacych</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Zmienna przechowywująca ilość obecnie istniejących obiektów typu <a class="el" href="class_wektor.html" title="Klasa modelująca wektor o zadanym rozmiarze i zadanym typie przechowywanych wartości. ">Wektor</a> </p>
+
+</div>
+</div>
+<a id="ab3a1aa151205d3c319a58545ebeb7990"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3a1aa151205d3c319a58545ebeb7990">&#9670;&nbsp;</a></span>iloscStworzonych</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int rozmiar_wektora, class typ_wartosci&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_wektor.html">Wektor</a>&lt; rozmiar_wektora, typ_wartosci &gt;::iloscStworzonych</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Zmienna przechowywująca ilość stworzonych obiektów typu <a class="el" href="class_wektor.html" title="Klasa modelująca wektor o zadanym rozmiarze i zadanym typie przechowywanych wartości. ">Wektor</a> </p>
 
 </div>
 </div>

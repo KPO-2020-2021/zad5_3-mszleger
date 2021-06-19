@@ -146,6 +146,11 @@ class Dron {
      * Metoda aktualizuje dane w pliku potrzebne gnuplotowi do narysowania drona
      */
     bool rysuj(PzG::LaczeDoGNUPlota& lacze);
+
+    /**
+     * Metoda animująca obrót rotorów podczas przemieszczania się drona
+     */
+    void animujRotory(double fps);
 };
 
 #endif

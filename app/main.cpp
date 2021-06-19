@@ -19,12 +19,12 @@ void wyswietlMenu()
 
 /**
  * \brief Metoda wyświetlająca informację o ilości stworzonych i obecnie istniejących obiektów typu Wektor
- *//*
-static void PokazRaport()
+ */
+void PokazRaport()
 {
-//  std::cout << "Aktualna ilosc obiektow Wektor3D: " << iloscIstniejacych << std::endl;
-//  std::cout << "  Laczna ilosc obiektow Wektor3D: " << iloscStworzonych << std::endl;
-}*/
+  std::cout << "Aktualna ilosc obiektow Wektor3D: " << Wektor3D::iloscIstniejacych << std::endl;
+  std::cout << "  Laczna ilosc obiektow Wektor3D: " << Wektor3D::iloscStworzonych << std::endl;
+}
 
 void wypisztypyElementowPowierzchni()
 {
@@ -68,6 +68,8 @@ int main()
     std::cout << std::endl;
     std::cout << "Polozenie Drona aktywnego (x,y): ";
     scena.gdzieDron(numerAktywnegoDrona);
+    std::cout << std::endl << std::endl;
+    PokazRaport();
     std::cout << std::endl << std::endl;
     std::cout << "Twoj wybor, m - menu > ";
     std::cin >> wybor;

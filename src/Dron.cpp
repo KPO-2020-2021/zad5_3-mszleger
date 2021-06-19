@@ -61,8 +61,8 @@ Dron::Dron(PzG::LaczeDoGNUPlota& lacze, int numerDrona)
     throw(1);
   this->rotory[0].przesunWzgledemUkladuRodzica(this->korpus[4]);
   this->rotory[1].przesunWzgledemUkladuRodzica(this->korpus[5]);
-  this->rotory[2].przesunWzgledemUkladuRodzica(this->korpus[6]);
-  this->rotory[3].przesunWzgledemUkladuRodzica(this->korpus[7]);
+  this->rotory[2].przesunWzgledemUkladuRodzica(this->korpus[7]);
+  this->rotory[3].przesunWzgledemUkladuRodzica(this->korpus[6]);
   this->predkoscKatowa = 180;
   this->predkoscLiniowa = 100;
   this->sciezka = new Sciezka(lacze);
@@ -159,6 +159,7 @@ bool Dron::wykonajKrok(double fps)
   {
     if(this->przesuniecieGlobalne[2] != 0) // Sprawdzanie czy dron jeszcze nie wylądował
     {
+      animujRotory(fps);                       // Animowanie obrotu rotorów
       ruch = predkoscLiniowa / fps; // Obliczanie maksymalnego kątu obrotu, który można wykonać w jednym kroku
       if(ruch <= przesuniecieGlobalne[2]) // Maksymalne przesunięcie jest mniejsze lub równe wysokości
       {
@@ -179,6 +180,9 @@ bool Dron::wykonajKrok(double fps)
     zaplanowaneRuchy.pop_front();      // Usuwanie ruchu jeśli został wykoanany
     return true;
   }
+
+  // Dron ma zaplanowane ruchy
+  animujRotory(fps);                       // Animowanie obrotu rotorów
 
   if(this->przesuniecieGlobalne[2] != 100) // Sprawdzanie czy dron wzbił się na wymaganą wysokość
   {
@@ -238,4 +242,14 @@ bool Dron::rysuj(PzG::LaczeDoGNUPlota& lacze)
     return false;
   lacze.Rysuj();
   return true;
+}
+
+void Dron::animujRotory(double fps)
+{
+  int kierunek = 1;
+  for(Graniastoslup6 &rotor : this->rotory)
+  {
+    rotor.obrocWzgledemLokalnegoUkladu(generujMacierzObrotu(kierunek*2*predkoscKatowa/fps, OZ));
+    kierunek *= -1;
+  }
 }

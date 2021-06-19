@@ -1,7 +1,3 @@
-W projekcie nie dodałem:
--obrotu rotorów wokół własnej osi poczas przemieszczania się drona,
--zliczanie ilości utworzonych i obecnie istniejących obiektów klasy Wektor.
-
 Do projektu dodałem następujące rozszerzenia:
 -umieszczane elementy powierzchni można obracać o zadany kąt,
 -można zmieniać położenie i kąt obrotu już dodanych elementów powierzchni.

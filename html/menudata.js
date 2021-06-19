@@ -65,7 +65,17 @@ var menudata={children:[
 {text:"y",url:"functions_func.html#index_y"},
 {text:"z",url:"functions_func.html#index_z"},
 {text:"~",url:"functions_func.html#index_0x7e"}]},
-{text:"Zmienne",url:"functions_vars.html"}]}]},
+{text:"Zmienne",url:"functions_vars.html",children:[
+{text:"_",url:"functions_vars.html#index__"},
+{text:"c",url:"functions_vars.html#index_c"},
+{text:"d",url:"functions_vars.html#index_d"},
+{text:"i",url:"functions_vars.html#index_i"},
+{text:"k",url:"functions_vars.html#index_k"},
+{text:"n",url:"functions_vars.html#index_n"},
+{text:"o",url:"functions_vars.html#index_o"},
+{text:"p",url:"functions_vars.html#index_p"},
+{text:"s",url:"functions_vars.html#index_s"},
+{text:"w",url:"functions_vars.html#index_w"}]}]}]},
 {text:"Pliki",url:"files.html",children:[
 {text:"Lista plików",url:"files.html"},
 {text:"Składowe plików",url:"globals.html",children:[
@@ -94,6 +104,7 @@ var menudata={children:[
 {text:"g",url:"globals_func.html#index_g"},
 {text:"m",url:"globals_func.html#index_m"},
 {text:"o",url:"globals_func.html#index_o"},
+{text:"p",url:"globals_func.html#index_p"},
 {text:"t",url:"globals_func.html#index_t"},
 {text:"w",url:"globals_func.html#index_w"}]},
 {text:"Zmienne",url:"globals_vars.html",children:[

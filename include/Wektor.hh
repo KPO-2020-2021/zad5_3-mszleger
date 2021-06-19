@@ -48,12 +48,12 @@ class Wektor {
     /**
      * Zmienna przechowywująca ilość stworzonych obiektów typu Wektor
      */
-//    static int iloscStworzonych;
+    static int iloscStworzonych;
 
     /**
      * Zmienna przechowywująca ilość obecnie istniejących obiektów typu Wektor
      */
-//    static int iloscIstniejacych;
+    static int iloscIstniejacych;
 
     /**
      * \brief Konstruktor bezarguemtowy
@@ -62,8 +62,8 @@ class Wektor {
      */
     Wektor()
     {
-//      iloscIstniejacych += 1;                        // Zliczanie nowo stworzonego obiektu
-//      iloscStworzonych += 1;
+      iloscIstniejacych += 1;                        // Zliczanie nowo stworzonego obiektu
+      iloscStworzonych += 1;
       for(typ_wartosci &wartosc : wartosci)                // Ustawianie wszystkich wartości przechowywanych przez wektor na 0
         wartosc = 0;
     }
@@ -75,8 +75,8 @@ class Wektor {
      */
     Wektor(typ_wartosci wartosciPoczatkowe[rozmiar_wektora])
     {
-//      iloscIstniejacych += 1;                        // Zliczanie nowo stworzonego obiektu
-//      iloscStworzonych += 1;
+      iloscIstniejacych += 1;                        // Zliczanie nowo stworzonego obiektu
+      iloscStworzonych += 1;
       for(unsigned int numerWartosci = 0; numerWartosci < rozmiar_wektora; ++numerWartosci)
         wartosci[numerWartosci] = wartosciPoczatkowe[numerWartosci];
     }
@@ -86,8 +86,8 @@ class Wektor {
      */
     Wektor(const Wektor <rozmiar_wektora, typ_wartosci> &wektor)
     {
-//      iloscIstniejacych += 1;                        // Zliczanie nowo stworzonego obiektu
-//      iloscStworzonych += 1;
+      iloscIstniejacych += 1;                        // Zliczanie nowo stworzonego obiektu
+      iloscStworzonych += 1;
       for(unsigned int x = 0; x < rozmiar_wektora; ++x)
         this->wartosci[x] = wektor.wartosci[x];
     }
@@ -97,7 +97,7 @@ class Wektor {
      */
     ~Wektor()
     {
-//      iloscIstniejacych -= 1;
+      iloscIstniejacych -= 1;
     }
 
     /**
@@ -255,5 +255,11 @@ std::ostream& operator << (std::ostream &Strm, const Wektor <rozmiar_wektora, ty
     Strm << " " << std::setw(15) << std::fixed << std::setprecision(10) << Wek[x];
   return Strm;                                             // Zwracanie rekurencji na strumień
 }
+
+template <unsigned int rozmiar_wektora, class typ_wartosci>
+int Wektor<rozmiar_wektora, typ_wartosci>::iloscStworzonych;
+
+template <unsigned int rozmiar_wektora, class typ_wartosci>
+int Wektor<rozmiar_wektora, typ_wartosci>::iloscIstniejacych;
 
 #endif
