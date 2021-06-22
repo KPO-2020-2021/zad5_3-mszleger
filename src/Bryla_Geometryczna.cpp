@@ -143,6 +143,7 @@ bool Bryla_Geometryczna::wyczyscWspolrzedneDoWyswietlenia()
 
 bool Bryla_Geometryczna::zapiszWspolrzedneDoWyswietlenia(const MacierzObrotu &obrotUkladuRodzicaWzgledemUkladuGlobalnego, const Wektor3D &przesuniecieUkladuRodzicaWzgledemUkladuGlobalnego)
 {
+  this->przesuniecieGlobalne = przesuniecieUkladuRodzicaWzgledemUkladuGlobalnego;
   if(czyPoprawnieWczytany == false)                                  // Zwracanie false jeśli spróbowano wyświetlić obiekt nieprawidłowo wczytany
     return false;
   std::fstream plik;                                                 // Tworzenie uchwytu do pliku
@@ -210,4 +211,48 @@ void Bryla_Geometryczna::wyswietlNazwe() const
 void Bryla_Geometryczna::deformuj()
 {
   
+}
+
+bool Bryla_Geometryczna::czyKoliduje (const Bryla_Geometryczna& dron)
+{
+  // Tworzenie tablicy dwóch wektorów zapisującej współrzędne dwóch naprzeciwległych wierzchołków prostokąta będącego obrysem obiektu.
+  // Boki prostokąta będącego obrysem są równoległe do osi OX i OY układu współrzędnych.
+  Wektor3D obrys[2];
+  // Inicjowanie wartości wektorów obrysu
+  obrys[0][0] = this->wierzcholki[0][0];
+  obrys[0][1] = this->wierzcholki[0][1];
+  obrys[1][0] = this->wierzcholki[0][0];
+  obrys[1][1] = this->wierzcholki[0][1];
+  // Wyznaczanie obrysu obiektu
+  for(const Wektor3D& wektor : this->wierzcholki)
+  {
+    for(unsigned int x = 0; x < 2; ++x)
+    {
+      // Szukanie wartości minimalnych
+      if(wektor[x] < obrys[0][x])
+        obrys[0][x] = wektor[x];
+      // Szukanie wartości maksymalnych
+      if(wektor[x] > obrys[1][x])
+        obrys[1][x] = wektor[x];
+    }
+  }
+  // Powiększanie obrysu o długość promienia obrysu drona
+  for(unsigned int x = 0; x < 2; ++x)
+  {
+    obrys[0][x] -= PROMIENOBRYSUDRONA;
+    obrys[1][x] += PROMIENOBRYSUDRONA;
+  }
+  // Przesówanie obrysu o przesunięcie globalne obiektu
+  obrys[0] += this->przesuniecieGlobalne;
+  obrys[1] += this->przesuniecieGlobalne;
+  // Sprawdzanie czy dron koliduje z obiektem
+  Wektor3D przesuniecieDrona = dron.przesuniecieGlobalne;
+  if(((przesuniecieDrona[0] > obrys[0][0]) && przesuniecieDrona[1] > obrys[0][1]) && ((przesuniecieDrona[0] < obrys[1][0]) && przesuniecieDrona[1] < obrys[1][1]))
+    return true;
+  return false;
+}
+
+Wektor3D Bryla_Geometryczna::zwrocPrzesuniecieGlobalne() const
+{
+  return this->przesuniecieGlobalne;
 }

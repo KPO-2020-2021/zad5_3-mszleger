@@ -8,6 +8,8 @@
 #include "Wektor3D.hh"
 #include "MacierzObrotu.hh"
 
+#define PROMIENOBRYSUDRONA 10
+
 /**
  * \brief Klasa modelująca ścianę bryły - klasa zawiera numery wierzchołków tworzących daną ścianę
  */
@@ -64,6 +66,12 @@ class Bryla_Geometryczna {
     * \brief Zmienna typu wektor3D przechowująca wektor przesunięcia lokalnego układu współrzędnych bryły względem lokalnego układu współrzędnych jej rodzica
     */
     Wektor3D przesuniecieWzgledemUkladuRodzica;
+
+    /**
+     * Zmienna przechowywująca przesunięcie globalne bryły względem środka układu współrzędnych
+     */
+    Wektor3D przesuniecieGlobalne;
+
   public:
     /**
      * \brief Konstruktor bezparametryczny inicjujący wartości macierzy obrotu jako macierze jednostkowe oraz flagi czyPoprawnieWczytany
@@ -167,6 +175,17 @@ class Bryla_Geometryczna {
      * \brief Metoda wirtualna deformująca w odpowiedni sposób prostopadłościan tak, aby otrzymać rządany obiekt np. górę z ostrym szczytem
      */
     virtual void deformuj();
+
+    /**
+     * Metoda zwraca true jeśli obrys bryły koliduje z obrysem drona podanego jako parametr.
+     * Metoda zwraca false jeśli obrys nie koliduje z podanym obiektem.
+     */
+    virtual bool czyKoliduje (const Bryla_Geometryczna& dron);
+
+    /**
+     * Metoda zwraca przesunięcie globalne bryły
+     */
+    Wektor3D zwrocPrzesuniecieGlobalne() const;
 };
 
 #endif

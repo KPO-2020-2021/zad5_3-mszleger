@@ -20,7 +20,7 @@
  * Rzuca wyjątkiem nr. 1 jeśli nie uda się wczytać brył tworzących dron
  */
 
-class Dron {
+class Dron : public Bryla_Geometryczna {
   private:
     /**
      * \brief Zmienna przechowywująca korpus drona
@@ -31,11 +31,6 @@ class Dron {
      * \brief Tablica przechowywująca cztery rotory drona
      */
     Graniastoslup6 rotory[4];
-
-    /**
-     * \brief Zmienna przechowywująca przesunięcie środka drona względem środka układu współrzędnych
-     */
-    Wektor3D przesuniecieGlobalne;
 
     /**
      * \brief Wskaźnik na obiekt rysujący planowaną ścieżkę przelotu drona
@@ -85,7 +80,7 @@ class Dron {
     /**
      * Metoda zwracające wektor przesunięcia drona względem środka układu współrzędnych
      */
-    Wektor3D zwrocWektorPrzesuniecia();
+    Wektor3D zwrocWektorPrzesuniecia() const;
 
     /**
      * Metoda przesuwająca drona z jego poprzedniego położenia o zadany wektor
@@ -143,6 +138,11 @@ class Dron {
     bool wykonajKrok(double fps); // zwraca false gdy już nie ma kroków do wykonania
 
     /**
+     * Metoda animująca lądowanie drona
+     */
+    bool wykonajKrokLadawania(double fps);
+
+    /**
      * Metoda aktualizuje dane w pliku potrzebne gnuplotowi do narysowania drona
      */
     bool rysuj(PzG::LaczeDoGNUPlota& lacze);
@@ -151,6 +151,17 @@ class Dron {
      * Metoda animująca obrót rotorów podczas przemieszczania się drona
      */
     void animujRotory(double fps);
+
+    /**
+     * Metoda zwraca true jeśli obrys drona koliduje z obrysem drona podanym jako parametr.
+     * Metoda zwraca false jeśli obrysy dronów ze sobą nie kolidują.
+     */
+    virtual bool czyKoliduje (const Bryla_Geometryczna& dron2) override;
+
+    /**
+     * \brief Metoda wirtualna wyświetlająca nazwę danej klasy
+     */
+    virtual void wyswietlNazwe() const;
 };
 
 #endif

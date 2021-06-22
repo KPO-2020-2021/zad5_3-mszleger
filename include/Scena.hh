@@ -105,6 +105,12 @@ class Scena {
      * Metoda wypisująca na standardowym wyjściu elementy powierzchni: ich numer, położenie, typ
      */
     void wypiszElementyPowierzchni();
+
+    /**
+     * Metoda zwraca true jeśli dron koliduje z jakimkolwiek obiektem sceny i nie powinien lądować.
+     * W przeciwnym razie metoda zwraca true.
+     */
+    bool czyDronKoliduje(const Dron& dron) const;
 };
 
 #endif

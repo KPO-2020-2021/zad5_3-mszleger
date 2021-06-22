@@ -20,6 +20,10 @@ Scena::Scena()
   drony.push_back(std::make_shared<Dron>(lacze, this->drony.size()));
   drony[0]->ustawPrzesuniecie(przesuniecie0);
   drony[1]->ustawPrzesuniecie(przesuniecie1);
+  // Dodawanie wskaźników na drony do listy przechowywującej elementy powierzchni
+  przeszkody.push_back(drony[0]);
+  przeszkody.push_back(drony[1]);
+  // Rysowanie podłoża sceny
   this->rysujPodloze();
 }
 
@@ -58,17 +62,32 @@ bool Scena::rysujPodloze()
 
 void Scena::animuj()
 {
+  // Zmienna przechowywująca informację czy należy zakończyć animowanie przelotu
   bool czyZankonczonoRysowanie = false;
+  // Pętla animująca przeloty dronów
   while(!czyZankonczonoRysowanie)
   {
-    czyZankonczonoRysowanie = true;
-    for(std::shared_ptr<Dron>& dron : drony)
+    czyZankonczonoRysowanie = true;                                  // Ustawianie flagi informującej czy kontynuować animowanie
+    for(std::shared_ptr<Dron>& dron : drony)                         // Pętla generująca klatkę animacji dla każdego drona na scenie
     {
-      if(dron->wykonajKrok(20) == true)
+      if(dron->wykonajKrok(20) == true)                              // Wykonywanie kroku przelotu
+      { // Resetowanie flagi informującej czy kontynuować animowanie - kiedy dron nie zakończył przelotu
         czyZankonczonoRysowanie = false;
+      }else{ // Zakończono przelot - wykonywanie lądowania
+        if(dron->zwrocWektorPrzesuniecia()[2] == 100)                // Sprawdzanie czy dron zakończył przelot i nie rozpoczął lądowania
+          if(this->czyDronKoliduje(*dron))                           // Sprawdzanie czy dron koliduje z jakimiś obiektami sceny
+          {
+            dron->dodajPrzelot(0, 20);                               // Dodawanie przelotu jeśli dron podczas lądowania kolidowałby
+            czyZankonczonoRysowanie = false;
+            continue;
+          }
+        // Wykonywanie lądowania
+        if(dron->wykonajKrokLadawania(20) == true)
+          czyZankonczonoRysowanie = false;
+      }
     }
-    this->wyswietl();
-    std::this_thread::sleep_for (std::chrono::milliseconds(50)); // Odczekanie 50ms
+    this->wyswietl();                                                // Aktualizowie wyświetlanych obiektów sceny
+    std::this_thread::sleep_for (std::chrono::milliseconds(50));     // Odczekanie 50ms pomiędzy poszczególnymi klatkami
   }
 }
 
@@ -154,4 +173,25 @@ void Scena::wypiszElementyPowierzchni()
     bryla->wyswietlNazwe();
     std::cout << std::endl;
   }
+}
+
+bool Scena::czyDronKoliduje(const Dron& dron) const
+{
+  bool czyKoliduje = false;
+  for(const std::shared_ptr<Bryla_Geometryczna> &obiekt : przeszkody)
+  {
+    // Pomiajnie sprawdzania jeśli przesunięcie globalne drona i sprawdzanego obiektu jest takie samo
+    if(dron.zwrocPrzesuniecieGlobalne() == obiekt->zwrocPrzesuniecieGlobalne())
+      continue;
+    if(obiekt->czyKoliduje(dron) == true)
+    {
+      czyKoliduje = true;
+      std::cout << ":( Ladowisko niedostepne!" << std::endl;
+      std::cout << ":( Wykryto element powierzchni typu: ";
+      obiekt->wyswietlNazwe();
+      std::cout << std::endl;
+      break;
+    }
+  }
+  return czyKoliduje;
 }

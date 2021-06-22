@@ -73,7 +73,7 @@ Dron::~Dron()
   delete this->sciezka;
 }
 
-Wektor3D Dron::zwrocWektorPrzesuniecia()
+Wektor3D Dron::zwrocWektorPrzesuniecia() const
 {
   return this->przesuniecieGlobalne;
 }
@@ -157,19 +157,6 @@ bool Dron::wykonajKrok(double fps)
 
   if(this->zaplanowaneRuchy.size() == 0)         // Sprawdzanie czy zaplanowano ruchy do wykonania
   {
-    if(this->przesuniecieGlobalne[2] != 0) // Sprawdzanie czy dron jeszcze nie wylądował
-    {
-      animujRotory(fps);                       // Animowanie obrotu rotorów
-      ruch = predkoscLiniowa / fps; // Obliczanie maksymalnego kątu obrotu, który można wykonać w jednym kroku
-      if(ruch <= przesuniecieGlobalne[2]) // Maksymalne przesunięcie jest mniejsze lub równe wysokości
-      {
-        przesuniecieGlobalne[2] -= ruch;
-      }else{ // Maksymalne przesunięcie jest większe od wysokości
-        przesuniecieGlobalne[2] = 0;
-      }
-      return true;
-    }
-    this->sciezka->usunSciezke();
     return false;
   }
 
@@ -223,6 +210,25 @@ bool Dron::wykonajKrok(double fps)
   return true;
 }
 
+bool Dron::wykonajKrokLadawania(double fps)
+{
+  double ruch = 0;
+  if(this->przesuniecieGlobalne[2] != 0) // Sprawdzanie czy dron jeszcze nie wylądował
+  {
+    animujRotory(fps);                       // Animowanie obrotu rotorów
+    ruch = predkoscLiniowa / fps; // Obliczanie maksymalnego kątu obrotu, który można wykonać w jednym kroku
+    if(ruch <= przesuniecieGlobalne[2]) // Maksymalne przesunięcie jest mniejsze lub równe wysokości
+    {
+      przesuniecieGlobalne[2] -= ruch;
+    }else{ // Maksymalne przesunięcie jest większe od wysokości
+      przesuniecieGlobalne[2] = 0;
+    }
+    return true;
+    }
+  this->sciezka->usunSciezke();
+  return false;
+}
+
 bool Dron::rysuj(PzG::LaczeDoGNUPlota& lacze)
 {
   // Generowanie macierzy obrotu drona wokół jego lokalnego układu współrzędnych
@@ -252,4 +258,20 @@ void Dron::animujRotory(double fps)
     rotor.obrocWzgledemLokalnegoUkladu(generujMacierzObrotu(kierunek*2*predkoscKatowa/fps, OZ));
     kierunek *= -1;
   }
+}
+
+bool Dron::czyKoliduje(const Bryla_Geometryczna& dron2)
+{
+  // Sprawdzanie czy odległość pomiędzy środkami dronów jest mniejsza niż dwókrotność prmienia ich obrysów
+  // Jeśli tak, to oznacza że drony kolidują ze sobą
+  Wektor3D odleglosc = this->przesuniecieGlobalne - dron2.zwrocPrzesuniecieGlobalne();
+  odleglosc[2] = 0;          // Idnorowanie przesunięcia między środkami wzdłuż osi OZ
+  if(odleglosc.modul() <= 2 * PROMIENOBRYSUDRONA)
+    return true;
+  return false;
+}
+
+void Dron::wyswietlNazwe() const
+{
+  std::cout << "Dron";
 }
