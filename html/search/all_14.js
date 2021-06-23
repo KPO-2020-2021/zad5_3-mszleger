@@ -17,6 +17,7 @@ var searchData=
   ['ustawzakresy',['UstawZakresY',['../class_pz_g_1_1_lacze_do_g_n_u_plota.html#a54c6e9cf9ab2eae479451fd953c2717c',1,'PzG::LaczeDoGNUPlota']]],
   ['ustawzakresz',['UstawZakresZ',['../class_pz_g_1_1_lacze_do_g_n_u_plota.html#a1dbbb2b86fb13b8632e6bad9df2a82e3',1,'PzG::LaczeDoGNUPlota']]],
   ['usunostatnianazwe',['UsunOstatniaNazwe',['../class_pz_g_1_1_lacze_do_g_n_u_plota.html#a75f599f17413ea8602c6dbba09f36407',1,'PzG::LaczeDoGNUPlota']]],
+  ['usunostatniodcineksciezki',['usunOstatniOdcinekSciezki',['../class_sciezka.html#a194bf17660fc40ebb787daf1b11dcb01',1,'Sciezka']]],
   ['usunprzeszkode',['usunPrzeszkode',['../class_scena.html#acf3f982ca8260ea090f7825ac4a47256',1,'Scena']]],
   ['usunsciezke',['usunSciezke',['../class_sciezka.html#aeb19b90c1abb03b957062736bc0de95d',1,'Sciezka']]],
   ['usunwszystkienazwyplikow',['UsunWszystkieNazwyPlikow',['../class_pz_g_1_1_lacze_do_g_n_u_plota.html#a89a1d90d017d264cd26398464d074073',1,'PzG::LaczeDoGNUPlota']]],

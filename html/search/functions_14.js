@@ -14,6 +14,7 @@ var searchData=
   ['zwrocnazweplikubrylawzorcowa',['zwrocNazwePlikuBrylaWzorcowa',['../class_bryla___geometryczna.html#ad0117336593cb01d65a9f7cfe438afb3',1,'Bryla_Geometryczna']]],
   ['zwrocpredkosckatowa',['zwrocPredkoscKatowa',['../class_dron.html#a56ca8b97d6c05a1a3c4d26a7f8dd11d7',1,'Dron']]],
   ['zwrocpredkoscliniowa',['zwrocPredkoscLiniowa',['../class_dron.html#a03058e3994361405e7d6851258c08c77',1,'Dron']]],
-  ['zwrocwektorprzesuniecia',['zwrocWektorPrzesuniecia',['../class_dron.html#afdc1346d9fc4d30b3876fd72a95ff284',1,'Dron']]],
+  ['zwrocprzesuniecieglobalne',['zwrocPrzesuniecieGlobalne',['../class_bryla___geometryczna.html#a9b0bbcf4aae8012fc63e7fb3a4c79a93',1,'Bryla_Geometryczna']]],
+  ['zwrocwektorprzesuniecia',['zwrocWektorPrzesuniecia',['../class_dron.html#aaec57a207f9371de02aab916f8a0ffc1',1,'Dron']]],
   ['zwrocwektortranslacjiwzgledemukladurodzica',['zwrocWektorTranslacjiWzgledemUkladuRodzica',['../class_bryla___geometryczna.html#a13d99273d1f926b8ea6ba445f3ee20ce',1,'Bryla_Geometryczna']]]
 ];
