@@ -162,6 +162,11 @@ class Dron : public Bryla_Geometryczna {
      * \brief Metoda wirtualna wyświetlająca nazwę danej klasy
      */
     virtual void wyswietlNazwe() const;
+
+    /**
+     * Metoda przedłużająca przelot drona (przesówająca ścieżkę lądowania i dorysowyująca dany ruch)
+     */
+    bool przedluzPrzelot(double kat, double odleglosc);
 };
 
 #endif

@@ -62,3 +62,9 @@ bool Sciezka::usunSciezke()
   sciezka.clear();                                                   // Usuwanie wektorów ścieżki z listy
   return true;                                                       // Zwracanie true
 }
+
+void Sciezka::usunOstatniOdcinekSciezki()
+{
+  sciezka.pop_back();
+  this->zapiszDoPliku();
+}

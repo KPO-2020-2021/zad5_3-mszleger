@@ -275,3 +275,20 @@ void Dron::wyswietlNazwe() const
 {
   std::cout << "Dron";
 }
+
+bool Dron::przedluzPrzelot(double kat, double odleglosc)
+{
+  Ruch nowyRuch;
+  Wektor3D ladowanie;
+  ladowanie[2] = -100;
+  if(odleglosc < 0)                              // Zwrócenie false jeśli długość przelotu jest ujemna
+    return false;
+  nowyRuch.katObrotu = kat;
+  nowyRuch.odleglosc = odleglosc;
+  this->zaplanowaneRuchy.push_back(nowyRuch);    // Dodawanie ruchu na koniec listy zaplanowanych ruchów
+  nowyRuch.katObrotu += this->obrotLokalny;                                    // Dodawanie do kąta obrotu ścieżki kąt obrotu lokalnego drona
+  this->sciezka->usunOstatniOdcinekSciezki();                                  // Usuwanie dotychczasowej ścieżki lądowania
+  this->sciezka->dodajRuch(this->przesuniecieGlobalne, nowyRuch);              // Tworzenie ścieżki reprezentującej przelot drona
+  this->sciezka->dodajWektor(this->przesuniecieGlobalne, ladowanie);           // Tworzenie ścieżki reprezentującej lądowanie drona
+  return true;
+}

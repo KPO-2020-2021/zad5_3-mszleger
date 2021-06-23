@@ -68,4 +68,9 @@ class Sciezka
      * Zwraca false jeśli nie udało się wyczyścić zawartości pliku do komunikacji z gnuplotem.
      */
 	  bool usunSciezke ();
+
+    /**
+     * Metoda usuwająca ostatni odcinek ścieżki
+     */
+    void usunOstatniOdcinekSciezki();
 };
