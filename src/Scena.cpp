@@ -77,6 +77,8 @@ void Scena::animuj()
         if(dron->zwrocWektorPrzesuniecia()[2] == 100)                // Sprawdzanie czy dron zakończył przelot i nie rozpoczął lądowania
           if(this->czyDronKoliduje(*dron))                           // Sprawdzanie czy dron koliduje z jakimiś obiektami sceny
           {
+            std::cout << "Lot zostal wydluzony." << std::endl;
+            std::cout << "Poszukiwanie wolnego ladowiska." << std::endl;
             dron->przedluzPrzelot(0, 20);                            // Dodawanie przelotu jeśli dron podczas lądowania kolidowałby
             czyZankonczonoRysowanie = false;
             continue;
